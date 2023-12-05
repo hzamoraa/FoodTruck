@@ -23,8 +23,8 @@ import static javax.persistence.TemporalType.DATE;
  */
 @Entity
 @Table(name = "Tacos")
-@NamedQuery(name = "list Tacos", query = "SELECT p FROM Taco p")
-@NamedQuery(name = "list Tacos by State", query = "SELECT p FROM Taco p WHERE p.estado = :e")
+@NamedQuery(name = "list Tacos", query = "SELECT p FROM Tacos p")
+@NamedQuery(name = "list Tacos by Storage", query = "SELECT p FROM Tacos p WHERE p.estado = :e")
 public class Tacos implements Serializable {
 
     

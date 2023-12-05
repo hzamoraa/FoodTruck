@@ -19,7 +19,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @Table(name="Salsas")
-@NamedQuery(name="list Salsas", query="SELECT p FROM Salsa p")
+@NamedQuery(name="list Salsas", query="SELECT p FROM Salsas p")
 public class Salsas implements Serializable {
 
     

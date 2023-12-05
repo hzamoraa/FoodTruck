@@ -20,7 +20,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @Table(name="Tortilla")
-@NamedQuery(name="list Tortillas", query="SELECT p FROM Tortilla p")
+@NamedQuery(name="list Tortillas", query="SELECT p FROM Tortillas p")
 public class Tortillas implements Serializable {
 
     
