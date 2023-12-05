@@ -6,7 +6,6 @@ package foodtruck.Controller;
 
 import foodtruck.entity.Rellenos;
 import foodtruck.entity.Tortillas;
-import foodtruck.views.RellenosView;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,14 +23,17 @@ public class RellenosController {
     
     
     public RellenosController(){
+        if(emf == null && em == null){
     emf = Persistence.createEntityManagerFactory("PU");
     em = emf.createEntityManager();
     }
+    }
     
+    public Rellenos instanceRelleno(String n){
+        return new Rellenos(n);
+    }
     
-    
-    
-    public void CrearRelleno(String nombre){
+    public void CrearRelleno(String nombre)throws Exception{
         Rellenos Re = new Rellenos(nombre);
         
         em.getTransaction().begin();
@@ -50,6 +52,10 @@ public class RellenosController {
         em.getTransaction().commit();
     
      }
+    public Rellenos getRelleno(Long id)throws Exception{
+        return em.find(Rellenos.class, id);
+    }
+    
     
     public void ModificarRelleno(String nombre, Long id){
        Rellenos  R;
@@ -62,6 +68,8 @@ public class RellenosController {
     em.getTransaction().begin();
     em.persist(R);
     em.getTransaction().commit();
+    }else{
+        System.out.println("No existe el relleno");
     }
     }
     
@@ -72,23 +80,11 @@ public class RellenosController {
     return q.getResultList();
     }
     
-     public String getColumnName(int i){
     
-        switch (i) {
-            case 0:
-                return "id";
-               
-            case 1:
-                return "nombre";
-                
-                
-            default:
-               return "";
-        }
     
     }
     
     
     
     
-}
+

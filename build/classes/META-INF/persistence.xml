@@ -7,6 +7,7 @@
     <class>foodtruck.entity.Salsas</class>
     <class>foodtruck.entity.Rellenos</class>
     <class>foodtruck.views.RellenosModel</class>
+    <class>foodtruck.views.CondimentosModel</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:\Users\Hiran PC\Documents\NetBeansProjects\FoodTruck\DataBase.db"/>
       <property name="javax.persistence.jdbc.user" value=""/>

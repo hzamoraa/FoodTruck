@@ -55,11 +55,12 @@ public class RellenosModel extends AbstractTableModel{
        
        return "";
         
-    }
-        
-        
-        
-        
+    } 
     }
     
+    @Override
+    public String getColumnName(int columnIndex) {
+        String[] nombres = {"ID", "Nombre"};
+        return nombres[columnIndex];
+    }
 }

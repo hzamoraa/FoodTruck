@@ -23,12 +23,17 @@ public class TortillasController {
     
     
     public TortillasController(){
+    if(emf == null && em == null){
     emf = Persistence.createEntityManagerFactory("PU");
     em = emf.createEntityManager();
     }
+    }
     
+    public Tortillas instanceTortilla(String n){
+        return new Tortillas(n);
+    }
     
-    public void CrearTortilla(String nombre){
+    public void CrearTortilla(String nombre)throws Exception{
         Tortillas T = new Tortillas(nombre);
         
         em.getTransaction().begin();
@@ -47,6 +52,10 @@ public class TortillasController {
                 
     }
     
+    public Tortillas getTortilla(Long id)throws Exception{
+        return em.find(Tortillas.class, id);
+    }
+    
     public void Modificar(String nombre, Long id){
     
         Tortillas T;
@@ -59,8 +68,9 @@ public class TortillasController {
     em.getTransaction().begin();
     em.persist(T);
     em.getTransaction().commit();
+    }else{
+            System.out.println("No existe la tortilla");
     }
-    
     
     }
     
@@ -69,27 +79,15 @@ public class TortillasController {
         
      Query q = em.createQuery("Select T from Tortillas T");
      
-     return q.getResultList();
+      List<Tortillas> tortillas;
+        tortillas = q.getResultList();
+        return tortillas;
     }
         
     
     
     
-    public String getColumnName(int i){
-    
-        switch (i) {
-            case 0:
-                return "id";
-               
-            case 1:
-                return "nombre";
-                
-                
-            default:
-               return "";
-        }
-    
-    }
+   
     
     
     

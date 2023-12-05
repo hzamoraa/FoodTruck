@@ -7,7 +7,6 @@ package foodtruck.Controller;
 import foodtruck.entity.Rellenos;
 import foodtruck.entity.Salsas;
 import foodtruck.entity.Tortillas;
-import foodtruck.views.SalsasView;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,12 +24,16 @@ public class SalsasController {
     
     
     public SalsasController(){
+        if(emf == null && em == null){
     emf = Persistence.createEntityManagerFactory("PU");
     em = emf.createEntityManager();
     }
+    }
+    public Salsas instanceSalsa(String n, int p){
+        return new Salsas(n, p);
+    }
     
-    
-    public void CrearSalsa(String nombre, int picor){
+    public void CrearSalsa(String nombre, int picor)throws Exception{
         Salsas S = new Salsas(nombre, picor);
         
         em.getTransaction().begin();
@@ -47,6 +50,9 @@ public class SalsasController {
         em.remove(S);
         em.getTransaction().commit();
                 
+    }
+     public Salsas getSalsa(Long id)throws Exception{
+        return em.find(Salsas.class, id);
     }
     
     public void Modificar(String nombre , int picor, Long id){
@@ -78,21 +84,7 @@ public class SalsasController {
     
     
     
-    public String getColumnName(int i){
     
-        switch (i) {
-            case 0:
-                return "id";
-               
-            case 1:
-                return "nombre";
-                
-            case 2:
-                return "picor";
-                
-            default:
-               return "";
-        }
     
     }
     
@@ -100,4 +92,4 @@ public class SalsasController {
     
     
     
-}
+

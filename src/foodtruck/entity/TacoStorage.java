@@ -10,9 +10,13 @@ import java.util.List;
  *
  * @author meme
  */
-public class TacoStorage {
+public enum TacoStorage {
     
-    public List<Rellenos> relleno;
+   Pedido,
+   EnPreparacion,
+   ParaRetirar,
+   Entregado
+   
     
     
     

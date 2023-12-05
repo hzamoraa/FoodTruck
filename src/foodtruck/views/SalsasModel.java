@@ -51,4 +51,10 @@ sc = new SalsasController();
     }
     }
     
+    @Override
+    public String getColumnName(int columnIndex) {
+        String[] nombres = {"ID", "Nombre", "Picor"};
+        return nombres[columnIndex];
+    }
+    
 }
