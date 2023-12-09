@@ -173,7 +173,7 @@ public class CondimentosView extends javax.swing.JPanel {
                 break;
             }
             case "Salsa":{                
-                this.jTable1.setModel(new RellenosModel());
+                this.jTable1.setModel(new SalsasModel());
                 this.jTable1.updateUI();
                 this.lockSaveComponents(false);
                 break;

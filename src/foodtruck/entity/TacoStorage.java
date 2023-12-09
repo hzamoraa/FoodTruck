@@ -4,11 +4,9 @@
  */
 package foodtruck.entity;
 
-import java.util.List;
-
 /**
  *
- * @author meme
+ * @author Hiran PC
  */
 public enum TacoStorage {
     

@@ -95,21 +95,21 @@ public class TacosView extends javax.swing.JFrame {
          String s = (String) this.jComboBox1.getSelectedItem();
         switch (s) {
             case "Pedido": {
-                this.jTable1.setModel(new TacosModel("Tacos by State", TacoStorage.Pedido));
+                this.jTable1.setModel(new TacosModel("Tacos by Storage", TacoStorage.Pedido));
                 this.jTable1.updateUI();
                 break;
             }
             case "En Preparacion": {
-                this.jTable1.setModel(new TacosModel("Tacos by State", TacoStorage.EnPreparacion));
+                this.jTable1.setModel(new TacosModel("Tacos by Storage", TacoStorage.EnPreparacion));
                 break;
             }
             case "Para Retirar": {
-                this.jTable1.setModel(new TacosModel("Tacos by State", TacoStorage.ParaRetirar));
+                this.jTable1.setModel(new TacosModel("Tacos by Storage", TacoStorage.ParaRetirar));
                 this.jTable1.updateUI();
                 break;
             }
             case "Entregado": {
-                this.jTable1.setModel(new TacosModel("Tacos by State", TacoStorage.Entregado));
+                this.jTable1.setModel(new TacosModel("Tacos by Storage", TacoStorage.Entregado));
                 this.jTable1.updateUI();
                 break;
             }
